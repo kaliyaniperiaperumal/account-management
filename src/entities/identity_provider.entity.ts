@@ -6,20 +6,20 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { BaseEntity } from './base.entity';
-import { ExternalIdentityProviderType } from 'src/enums/external-idp-type.enum';
-import { ExternalIdentityProviderStatus } from 'src/enums/external-idp-status.enum';
+import { IdentityProviderType } from 'src/enums/identity-provider-type.enum';
+import { IdentityProviderStatus } from 'src/enums/identity-provider-status.enum';
 import { CognitoUserPool } from './cognito_user_pool.entity';
 
-@Entity('external_identity_providers')
-export class ExternalIdentityProvider extends BaseEntity {
+@Entity('identity_providers')
+export class IdentityProvider extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column({ type: 'varchar' })
   name: string;
 
-  @Column({ type: 'enum', enum: ExternalIdentityProviderType })
-  type: ExternalIdentityProviderType;
+  @Column({ type: 'enum', enum: IdentityProviderType })
+  type: IdentityProviderType;
 
   @Column({ name: 'client_id', type: 'varchar' })
   clientId: string;
@@ -32,10 +32,10 @@ export class ExternalIdentityProvider extends BaseEntity {
 
   @Column({
     type: 'enum',
-    enum: ExternalIdentityProviderStatus,
-    default: ExternalIdentityProviderStatus.ACTIVE,
+    enum: IdentityProviderStatus,
+    default: IdentityProviderStatus.ACTIVE,
   })
-  status: ExternalIdentityProviderStatus;
+  status: IdentityProviderStatus;
 
   @ManyToOne(
     () => CognitoUserPool,

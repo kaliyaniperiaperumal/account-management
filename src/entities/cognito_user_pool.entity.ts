@@ -2,7 +2,7 @@ import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { BaseEntity } from './base.entity';
 import { UserPoolType } from 'src/enums/user-pool-type.enum';
 import { Tenant } from './tenant.entity';
-import { ExternalIdentityProvider } from './exteranl_identity_provider.entity';
+import { IdentityProvider } from './identity_provider.entity';
 
 @Entity('cognito_user_pools')
 export class CognitoUserPool extends BaseEntity {
@@ -29,9 +29,6 @@ export class CognitoUserPool extends BaseEntity {
   @OneToMany(() => Tenant, (mapping) => mapping.cognitoUserPool)
   tenant: Tenant[];
 
-  @OneToMany(
-    () => ExternalIdentityProvider,
-    (mapping) => mapping.cognitoUserPool,
-  )
-  externalIdentityProvider: ExternalIdentityProvider[];
+  @OneToMany(() => IdentityProvider, (mapping) => mapping.cognitoUserPool)
+  externalIdentityProvider: IdentityProvider[];
 }
