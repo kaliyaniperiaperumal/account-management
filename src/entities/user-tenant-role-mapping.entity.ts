@@ -9,8 +9,8 @@ import {
 import { BaseEntity } from './base.entity';
 import { Tenant } from './tenant.entity';
 import { User } from './user.entity';
-import { UserRole } from './user_roles.entity';
-import { UserSession } from './user_sessions.entity';
+import { UserRole } from './user-role.entity';
+import { UserSession } from './user-sessions.entity';
 
 @Entity('user_tenant_role_mapping')
 @Unique(['user', 'tenant', 'role'])

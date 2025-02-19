@@ -2,7 +2,7 @@ import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { BaseEntity } from './base.entity';
 import { UserPoolType } from 'src/enums/user-pool-type.enum';
 import { Tenant } from './tenant.entity';
-import { IdentityProvider } from './identity_provider.entity';
+import { IdentityProvider } from './identity-provider.entity';
 
 @Entity('cognito_user_pools')
 export class CognitoUserPool extends BaseEntity {
