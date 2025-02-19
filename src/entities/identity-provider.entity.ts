@@ -8,7 +8,7 @@ import {
 import { BaseEntity } from './base.entity';
 import { IdentityProviderType } from 'src/enums/identity-provider-type.enum';
 import { IdentityProviderStatus } from 'src/enums/identity-provider-status.enum';
-import { CognitoUserPool } from './cognito_user_pool.entity';
+import { CognitoUserPool } from './cognito-user-pool.entity';
 
 @Entity('identity_providers')
 export class IdentityProvider extends BaseEntity {

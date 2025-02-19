@@ -9,8 +9,8 @@ import {
 } from 'typeorm';
 import { v4 as uuidV4 } from 'uuid';
 import { BaseEntity } from './base.entity';
-import { UserTenantRoleMapping } from './user_tenant_role_mapping.entity';
-import { CognitoUserPool } from './cognito_user_pool.entity';
+import { UserTenantRoleMapping } from './user-tenant-role-mapping.entity';
+import { CognitoUserPool } from './cognito-user-pool.entity';
 
 @Entity('tenants')
 export class Tenant extends BaseEntity {

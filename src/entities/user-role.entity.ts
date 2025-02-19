@@ -1,7 +1,7 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { BaseEntity } from './base.entity';
 import { v4 as uuidV4 } from 'uuid';
-import { UserTenantRoleMapping } from './user_tenant_role_mapping.entity';
+import { UserTenantRoleMapping } from './user-tenant-role-mapping.entity';
 
 @Entity('user_roles')
 export class UserRole extends BaseEntity {

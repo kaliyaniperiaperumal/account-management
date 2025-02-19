@@ -6,7 +6,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { BaseEntity } from './base.entity';
-import { UserTenantRoleMapping } from './user_tenant_role_mapping.entity';
+import { UserTenantRoleMapping } from './user-tenant-role-mapping.entity';
 
 @Entity('user_sessions')
 export class UserSession extends BaseEntity {
