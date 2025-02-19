@@ -21,11 +21,11 @@ export class ExternalIdentityProvider extends BaseEntity {
   @Column({ type: 'enum', enum: ExternalIdentityProviderType })
   type: ExternalIdentityProviderType;
 
-  @Column({ type: 'varchar' })
+  @Column({ name: 'client_id', type: 'varchar' })
   clientId: string;
 
-  @Column({ type: 'varchar' })
-  client_secret: string;
+  @Column({ name: 'client_secret', type: 'varchar' })
+  clientSecret: string;
 
   @Column({ type: 'boolean' })
   enabled: boolean;
