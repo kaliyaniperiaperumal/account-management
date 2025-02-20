@@ -37,13 +37,9 @@ export class IdentityProvider extends BaseEntity {
   })
   status: IdentityProviderStatus;
 
-  @ManyToOne(
-    () => CognitoUserPool,
-    (userPool) => userPool.externalIdentityProvider,
-    {
-      eager: true,
-    },
-  )
+  @ManyToOne(() => CognitoUserPool, (userPool) => userPool.identityProvider, {
+    eager: true,
+  })
   @JoinColumn({ name: 'cognito_user_pool_id' })
   cognitoUserPool: CognitoUserPool;
 }
