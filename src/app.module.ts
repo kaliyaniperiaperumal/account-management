@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { CognitoUserPoolModule } from './cognito-user-pool/cognito-user-pool.module';
+import { TenantModule } from './tenant/tenant.module';
 @Module({
   imports: [
     CognitoUserPoolModule,
@@ -21,6 +22,7 @@ import { CognitoUserPoolModule } from './cognito-user-pool/cognito-user-pool.mod
       }),
       inject: [ConfigService],
     }),
+    TenantModule,
   ],
   controllers: [AppController],
   providers: [AppService],

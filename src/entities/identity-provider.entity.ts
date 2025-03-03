@@ -9,6 +9,7 @@ import { BaseEntity } from './base.entity';
 import { IdentityProviderType } from 'src/enums/identity-provider-type.enum';
 import { IdentityProviderStatus } from 'src/enums/identity-provider-status.enum';
 import { CognitoUserPool } from './cognito-user-pool.entity';
+import { Tenant } from './tenant.entity';
 
 @Entity('identity_providers')
 export class IdentityProvider extends BaseEntity {
@@ -42,4 +43,10 @@ export class IdentityProvider extends BaseEntity {
   })
   @JoinColumn({ name: 'cognito_user_pool_id' })
   cognitoUserPool: CognitoUserPool;
+
+  @ManyToOne(() => Tenant, (tenant) => tenant.identityProviders, {
+    eager: true,
+  })
+  @JoinColumn({ name: 'tenant_id' })
+  tenant: Tenant;
 }
