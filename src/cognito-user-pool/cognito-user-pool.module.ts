@@ -9,5 +9,6 @@ import { AuthModule } from 'src/auth/auth.module';
   imports: [TypeOrmModule.forFeature([CognitoUserPool]), AuthModule],
   controllers: [CognitoUserPoolController],
   providers: [CognitoUserPoolService],
+  exports: [CognitoUserPoolService],
 })
 export class CognitoUserPoolModule {}

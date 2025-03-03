@@ -11,6 +11,7 @@ import { v4 as uuidV4 } from 'uuid';
 import { BaseEntity } from './base.entity';
 import { UserTenantRoleMapping } from './user-tenant-role-mapping.entity';
 import { CognitoUserPool } from './cognito-user-pool.entity';
+import { IdentityProvider } from './identity-provider.entity';
 
 @Entity('tenants')
 export class Tenant extends BaseEntity {
@@ -38,6 +39,12 @@ export class Tenant extends BaseEntity {
   )
   @JoinColumn({ name: 'cognito_user_pool_id' })
   cognitoUserPool: CognitoUserPool;
+
+  @OneToMany(
+    () => IdentityProvider,
+    (identityProvider) => identityProvider.tenant,
+  )
+  identityProviders: IdentityProvider[];
 
   beforeInsert() {
     this.id = uuidV4();
