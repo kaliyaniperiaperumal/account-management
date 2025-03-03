@@ -3,6 +3,7 @@ import { BaseEntity } from './base.entity';
 import { UserPoolType } from 'src/enums/user-pool-type.enum';
 import { Tenant } from './tenant.entity';
 import { IdentityProvider } from './identity-provider.entity';
+import { v4 as uuidV4 } from 'uuid';
 
 @Entity('cognito_user_pools')
 export class CognitoUserPool extends BaseEntity {
@@ -30,5 +31,9 @@ export class CognitoUserPool extends BaseEntity {
   tenant: Tenant[];
 
   @OneToMany(() => IdentityProvider, (mapping) => mapping.cognitoUserPool)
-  externalIdentityProvider: IdentityProvider[];
+  identityProvider: IdentityProvider[];
+
+  beforeInsert() {
+    this.id = uuidV4();
+  }
 }
