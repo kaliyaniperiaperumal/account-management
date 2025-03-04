@@ -13,6 +13,5 @@ export class CustomExceptionFilter implements ExceptionFilter {
       path: request.url,
       message: exception.message,
     });
-    throw new Error('Method not implemented.');
   }
 }
