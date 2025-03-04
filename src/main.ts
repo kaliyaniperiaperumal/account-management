@@ -1,11 +1,11 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-//import { CustomExceptionFilter } from './custom.exception.filter';
+import { CustomExceptionFilter } from './custom.exception.filter';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  //app.useGlobalFilters(new CustomExceptionFilter());
+  app.useGlobalFilters(new CustomExceptionFilter());
   const options = new DocumentBuilder()
     .setTitle('Account Management')
     .setDescription('Multi tenant account management micro service')
